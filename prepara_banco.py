@@ -30,9 +30,9 @@ cursor = conn.cursor()
 cursor.executemany(
       'INSERT INTO jogoteca.usuario (id, nome, senha) VALUES (%s, %s, %s)',
       [
-            ('luan', 'Luan Marques', 'flask'),
-            ('nico', 'Nico', '7a1'),
-            ('danilo', 'Danilo', 'vegas')
+            ('stark', 'Marcos', 'flask'),
+            ('paty', 'Patricia', 'rosa'),
+            ('lysa', 'Lysa', 'dodo')
       ])
 
 cursor.execute('select * from jogoteca.usuario')
