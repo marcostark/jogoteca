@@ -1,4 +1,4 @@
-from jogoteca import Jogo, Usuario
+from models import Jogo, Usuario
 
 SQL_DELETA_JOGO = 'delete from jogo where id = %s'
 SQL_JOGO_POR_ID = 'SELECT id, nome, categoria, console from jogo where id = %s'
@@ -16,9 +16,9 @@ class JogoDao:
         cursor = self.__db.connection.cursor()
 
         if (jogo.id):
-            cursor.execute(SQL_ATUALIZA_JOGO, (jogo.nome, jogo.categoria, jogo.console, jogo.id))
+            cursor.execute(SQL_ATUALIZA_JOGO, (jogo.get_nome(), jogo.get_categoria(), jogo.get_plataforma(), jogo.get_id()))
         else:
-            cursor.execute(SQL_CRIA_JOGO, (jogo.nome, jogo.categoria, jogo.console))
+            cursor.execute(SQL_CRIA_JOGO, (jogo.get_nome(), jogo.get_categoria(), jogo.get_plataforma()))
             jogo.id = cursor.lastrowid
         self.__db.connection.commit()
         return jogo

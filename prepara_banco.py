@@ -1,6 +1,6 @@
 import MySQLdb
 print('Conectando...')
-conn = MySQLdb.connect(user='root', passwd='', host='127.0.0.1', port=3306)
+conn = MySQLdb.connect(user='stark', passwd='pass', host='192.168.0.101', port=3306)
 
 # Descomente se quiser desfazer o banco...
 conn.cursor().execute("DROP DATABASE `jogoteca`;")
